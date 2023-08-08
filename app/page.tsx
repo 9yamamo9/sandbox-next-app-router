@@ -17,7 +17,7 @@ export default function Home() {
     links: [
       { path: 'counter', title: 'Counter' },
       { path: 'client-component', title: 'Client Component' },
-      { path: '', title: 'Server Component' }
+      { path: 'server-component', title: 'Server Component' }
     ]
   }
 
