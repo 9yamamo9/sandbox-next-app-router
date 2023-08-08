@@ -16,7 +16,7 @@ export default function Home() {
   const props: HomeProps = {
     links: [
       { path: 'counter', title: 'Counter' },
-      { path: '', title: 'Client Component' },
+      { path: 'client-component', title: 'Client Component' },
       { path: '', title: 'Server Component' }
     ]
   }
