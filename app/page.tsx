@@ -17,7 +17,8 @@ export default function Home() {
     links: [
       { path: 'counter', title: 'Counter' },
       { path: 'client-component', title: 'Client Component' },
-      { path: 'server-component', title: 'Server Component' }
+      { path: 'server-component', title: 'Server Component' },
+      { path: 'dynamic-routes', title: 'Dynamic Routes' }
     ]
   }
 
@@ -29,7 +30,7 @@ export default function Home() {
         <h1 className="font-bold text-7xl">Sample Components for Next.js ver.13</h1>
       </div>
 
-      <div className="grid lg:grid-cols-3 text-center gap-36">
+      <div className="grid lg:grid-cols-3 text-center xl:gap-36 sm:gap-3">
         {props.links.map((pair) => {
           const isActive = pathname !== `/${pair.path}`
 
