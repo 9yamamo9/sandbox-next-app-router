@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 type LinkPair = {
   path: string
@@ -18,6 +21,8 @@ export default function Home() {
     ]
   }
 
+  const pathname = usePathname()
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
@@ -25,13 +30,20 @@ export default function Home() {
       </div>
 
       <div className="grid lg:grid-cols-3 text-center gap-36">
-        {props.links.map((pair) => (
-          <div key={pair.title} className="block p-6 bg-white border border-gray-300 rounded-lg shadow hover:bg-gray-100 ">
-            <Link href={`/${pair.path}`} className=" font-bold font-mono text-xl">
-              {pair.title}
-            </Link>
-          </div>
-        ))}
+        {props.links.map((pair) => {
+          const isActive = pathname !== `/${pair.path}`
+
+          return (
+            <div key={pair.title} className="block p-6 bg-white border border-gray-300 rounded-lg shadow hover:bg-gray-100 ">
+              <Link
+                href={`/${pair.path}`}
+                className={`font-bold font-mono text-xl ${isActive ? 'text-gray-900' : 'text-red-600'}`}
+              >
+                {pair.title}
+              </Link>
+            </div>
+          )
+        })}
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
