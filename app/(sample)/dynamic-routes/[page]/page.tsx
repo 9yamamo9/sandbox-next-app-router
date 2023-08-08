@@ -1,5 +1,3 @@
-import { NextPage } from 'next'
-
 type DynamicRoutesParam = {
   page: string
 }
