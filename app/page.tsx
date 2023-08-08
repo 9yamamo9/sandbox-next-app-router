@@ -1,31 +1,37 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
+type LinkPair = {
+  path: string
+  title: string
+}
+
+type HomeProps = {
+  links: LinkPair[]
+}
+
 export default function Home() {
+  const props: HomeProps = {
+    links: [
+      { path: 'counter', title: 'Counter' },
+      { path: '', title: 'Client Component' },
+      { path: '', title: 'Server Component' }
+    ]
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
-        <h1 className="text-3xl">Sample Components for Next.js ver.13</h1>
+        <h1 className="font-bold text-7xl">Sample Components for Next.js ver.13</h1>
       </div>
 
       <div className="grid lg:grid-cols-3 text-center gap-36">
-        <div className="block p-6 bg-white border border-gray-300 rounded-lg shadow hover:bg-gray-100 ">
-          <Link href="/counter" className="font-bold font-mono text-xl">
-            Counter
-          </Link>
-        </div>
-
-        <div className="block p-6 bg-white border border-gray-300 rounded-lg shadow hover:bg-gray-100">
-          <Link href="/" className="font-bold font-mono text-xl">
-            Client Component
-          </Link>
-        </div>
-
-        <div className="block p-6 bg-white border border-gray-300 rounded-lg shadow hover:bg-gray-100">
-          <Link href="/" className="font-bold font-mono text-xl">
-            Server Component
-          </Link>
-        </div>
+        {props.links.map((pair) => (
+          <div key={pair.title} className="block p-6 bg-white border border-gray-300 rounded-lg shadow hover:bg-gray-100 ">
+            <Link href={`/${pair.path}`} className=" font-bold font-mono text-xl">
+              {pair.title}
+            </Link>
+          </div>
+        ))}
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
