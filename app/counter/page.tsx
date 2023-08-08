@@ -6,7 +6,7 @@ const Counter = () => {
   const [count, setCount] = useState<number>(0)
 
   return (
-    <div className="text-center m-16">
+    <div className="text-center m-16 min-h-screen">
       <div className="text-3xl">You clicked {count} times</div>
       <button
         onClick={() => {
