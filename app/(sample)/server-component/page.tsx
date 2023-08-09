@@ -5,7 +5,6 @@ const fakeRequest = async () => {
 
 const ServerComponent = async () => {
   const data = await fakeRequest()
-  console.log(data.name)
 
   return (
     <div className="min-h-screen">
